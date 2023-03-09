@@ -4,11 +4,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import { InputAdornment, IconButton } from "@mui/material";
 
 const SearchBar = ({ onSearchHandler }) => {
-  const [searchTerm, setSearchTerm] = useState();
+  const [searchTerm, setSearchTerm] = useState(null);
   return (
     <>
       <Box width={"100%"} textAlign={"center"}>
         <TextField
+          value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="search NFTs by Contract"
           sx={{ width: "50vw", margin: "1rem" }}

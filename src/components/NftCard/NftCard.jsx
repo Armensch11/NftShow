@@ -1,14 +1,24 @@
 import { Button, Grid, Typography, Box, ImageListItem } from "@mui/material";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 // import Image from "./Image";
 
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import NftDialog from "../NftDialog";
 
-const NftCard = ({ imageUrl, name }) => {
+const NftCard = ({ name, tokenId, description, imageUrl }) => {
+  const [open, setOpen] = useState(false);
   const LazyImage = lazy(() => import("./Image"));
+  const meta = { name, tokenId, description, imageUrl };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  if (open) {
+    return <NftDialog handleClose={handleClose} open={open} meta={meta} />;
+  }
   return (
     <>
       <Box
+        onClick={() => setOpen(true)}
         sx={{
           display: "flex",
           flexDirection: "column",

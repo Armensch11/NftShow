@@ -32,6 +32,7 @@ const getNfts = async (
     name: data.rawMetadata.name,
     imageUrl: ipfsToHtml(data.rawMetadata.image),
     id: data.tokenId,
+    description: data.description
   }));
   return dataToUse;
   // Get all NFTs

@@ -40,7 +40,7 @@ const ShowNFTs = (props) => {
           nfts
             .filter((el, index) => index < 27)
             .map((nft) => (
-              <NftCard name={nft.name} key={nft.id} imageUrl={nft.imageUrl} />
+              <NftCard  key={nft.id}  {...nft}/>
             ))}
       </Box>
     </>
