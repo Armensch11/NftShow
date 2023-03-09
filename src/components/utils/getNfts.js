@@ -30,7 +30,7 @@ const getNfts = async (
   const ipfsToHtml = (str) => str.replace("ipfs:/", "https://ipfs.io/ipfs");
   const dataToUse = temp.nfts.map((data) => ({
     name: data.rawMetadata.name,
-    imageUrl: ipfsToHtml(data.rawMetadata.image),
+    imageUrl: ipfsToHtml(data.rawMetadata?.image),
     id: data.tokenId,
     description: data.description
   }));

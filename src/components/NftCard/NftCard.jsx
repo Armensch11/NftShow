@@ -1,8 +1,6 @@
-import { Button, Grid, Typography, Box, ImageListItem } from "@mui/material";
+import { Button, Typography, Box } from "@mui/material";
 import { lazy, Suspense, useState } from "react";
-// import Image from "./Image";
 
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import NftDialog from "../NftDialog";
 
 const NftCard = ({ name, tokenId, description, imageUrl }) => {

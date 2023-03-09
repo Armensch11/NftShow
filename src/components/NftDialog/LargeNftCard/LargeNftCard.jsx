@@ -1,11 +1,15 @@
 import { Button, Typography, Box } from "@mui/material";
 import { lazy, Suspense } from "react";
 // import Image from "./Image";
+import openSeaListing from "../../utils/openSeaListing";
 
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const LargeNftCard = ({ imageUrl, name, tokenId, description }) => {
   const LazyImage = lazy(() => import("./LargeImage"));
+  const checkAvailability = () => {
+    const check = openSeaListing();
+  };
   return (
     <>
       <Box

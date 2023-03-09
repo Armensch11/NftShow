@@ -3,13 +3,15 @@ import getNfts from "../utils/getNfts";
 import NftCard from "../NftCard";
 import { Box } from "@mui/material";
 import SearchBar from "../SearchBar";
+import { useStore } from "effector-react";
+import { $searchTerm } from "../../store/search";
 
 const ShowNFTs = (props) => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const searchTerm = useStore($searchTerm);
   const [nfts, setNfts] = useState({});
-  const handleSearch = (term) => {
-    setSearchTerm(term);
-  };
+  // const handleSearch = (term) => {
+  //   setSearchTerm(term);
+  // };
   const getList = async () => {
     const temp = await getNfts(searchTerm);
     setNfts(temp);
@@ -35,13 +37,11 @@ const ShowNFTs = (props) => {
           mb: "1.5rem",
         }}
       >
-        <SearchBar onSearchHandler={handleSearch} />
+        <SearchBar />
         {nfts.length &&
           nfts
             .filter((el, index) => index < 27)
-            .map((nft) => (
-              <NftCard  key={nft.id}  {...nft}/>
-            ))}
+            .map((nft) => <NftCard key={nft.id} {...nft} />)}
       </Box>
     </>
   );
